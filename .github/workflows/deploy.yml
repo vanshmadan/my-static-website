@@ -41,3 +41,14 @@ jobs:
           runs: 3
           uploadArtifacts: true # save results as an action artifacts
           temporaryPublicStorage: true # upload lighthouse report to the temporary
+     
+      - name: Add comment to PR
+        id: loading_lighthouse_comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number }}
+          header: lighthouse
+          message: |
+            🚦 Running Lighthouse audit...
+  
