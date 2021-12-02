@@ -36,6 +36,6 @@ jobs:
         uses: treosh/lighthouse-ci-action@v7
         with:
           urls: |
-            ${{ needs.deploy.outputs.preview-url }}
+            ${{ needs.build.outputs.preview-url }}
           budgetPath: ./budget.json
           runs: 3
