@@ -1,4 +1,4 @@
-name: CD for website
+name: CDD for website
 
 on:
   pull_request:
