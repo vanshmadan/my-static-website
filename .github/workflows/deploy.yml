@@ -1,7 +1,7 @@
 name: CD for website
 
 on:
-  pull_request:
+  push:
     branches: [ main ]
 
 jobs:
@@ -15,6 +15,9 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
       - run: yarn build
+      - name: 'CURL request'
+        run: |
+         curl -XGET https://stage-billing-api.lambdatest.com/api/plans?groups=true
       
 
       - uses: actions/checkout@v2
